@@ -1,0 +1,85 @@
+.layout-default {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    &__header {
+        background: #f0f0f0;
+        padding: 15px 0;
+
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+    }
+
+    &__logo {
+        font-size: 24px;
+        font-weight: 800;
+        background-color: #103178;
+        color: #FCC90F;
+        padding: 8px 0;
+        text-align: center;
+    }
+
+
+
+
+    &__main {
+        flex: 1;
+        /* This allows the main content area to grow and fill available space */
+        overflow-y: auto;
+        /* This enables vertical scrolling if the content overflows the container */
+        margin: 30px 0;
+
+        /* This sets the top and bottom margin to 30 pixels and no margin on left and right */
+
+        &--row {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            
+            
+            &__box {
+                box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+                background-color: #fff;
+                padding: 50px 30px;
+                border-radius: 6px;
+                margin: 20px 0;
+                transition: all 0.5s; // nhấp vô to ra từ từ sau 0.5s
+
+                &:hover {
+                    transform: scale(1.2); // nhấp vô to ra
+                }
+          
+
+                svg {
+                    font-size: 35px; // Adjust the size as needed
+                    color: rgb(5, 122, 34);
+                    margin-bottom: 20px;
+                }
+
+                  &--title {
+                    font-size: 30px;
+                    color: rgb(127, 144, 255);
+                    text-align: center;
+                  }
+
+                  &--desc {
+                    font-size: 30px;
+                  }
+            }
+        }
+
+    }
+
+
+    &__footer {
+        padding: 15px 0;
+        text-align: center;
+        background: #333;
+        color: #fff;
+    }
+}
