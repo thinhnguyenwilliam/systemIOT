@@ -240,14 +240,16 @@ const Main = () => {
                 </div>
 
 
-                <div className="layout-default__main--second">
+                {/* <div className="layout-default__main--second">
                     <div className="layout-default__main--second__title">
                         hình đẹp
                     </div>
                     <div className="layout-default__main--second__figure">
                         hình đẹp
                     </div>
-                </div>
+                </div> */}
+
+                
             </div>
         </main>
     );
