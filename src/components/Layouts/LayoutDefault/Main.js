@@ -58,7 +58,7 @@ const Main = () => {
         const day = String(now.getDate()).padStart(2, '0');
 
         //const basePath = `${year}-${month}-${day}/sensor8`;
-        const basePath = `2024-06-23/sensor8`;//test thử
+        const basePath = `2024-07-12/sensor8`;//test thử
 
         // Fetch all message keys
         const baseRef = ref(database, basePath);
@@ -91,9 +91,11 @@ const Main = () => {
         fetchData();
     }, []); // Empty dependency array ensures this runs only once when the component mounts
 
-    const handleSave = async () => {
+    const handleSave = async (e) => {
+        e.preventDefault();
         const inputValue = dataRef.current.value;
         const path = await getCurrentDatePath();
+        const database = getDatabase(); // Initialize the database reference
         if (path) {
             const dbRef = ref(database, path);
             set(dbRef, { "Nhiệt độ": inputValue })
@@ -111,8 +113,7 @@ const Main = () => {
             <div className="container">
                 <h1>List of parameters in the system</h1>
 
-                {/* <button onClick={handleSave}>Save</button> */}
-                {/* <p>{temperature.data}</p>  Display the fetched temperature  */}
+
 
 
                 <div className="layout-default__main--row">
@@ -240,16 +241,17 @@ const Main = () => {
                 </div>
 
 
-                {/* <div className="layout-default__main--second">
-                    <div className="layout-default__main--second__title">
-                        hình đẹp
-                    </div>
-                    <div className="layout-default__main--second__figure">
-                        hình đẹp
-                    </div>
-                </div> */}
+                <div className="layout-default__main--second">
+                    <form onSubmit={handleSave}>
+                        <label>
+                            Nhiệt độ
+                            <input type="text" name="name" ref={dataRef} />
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
 
-                
+
             </div>
         </main>
     );
